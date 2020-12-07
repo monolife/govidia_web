@@ -35,7 +35,7 @@ const Computer = (props) => {
   	labels: ['GPU %', 'Mem %', 'Temp (C)'],
   	datasets: props.data.infos.map( (d,index) =>{
   		let rObj = {
-  			label: d.gpu_index + " " +d.name,
+  			label: "[" +d.gpu_index+"]" + " " +d.name,
   			data: [d.utilization_gpu, 
           d.utilization_memory, 
           d.temperature_gpu],

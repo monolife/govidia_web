@@ -1,0 +1,7 @@
+version: "3.7"
+
+services:
+  govidia_web:
+    image: amon/govidia_web:latest
+    ports:
+      - 5000:5000

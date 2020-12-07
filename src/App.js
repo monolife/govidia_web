@@ -58,7 +58,7 @@ function App() {
   }, [])
 
   const classes = useStyles();
-    if (error) {
+  if (error) {
     return <div>Error: {error.message}</div>;
   } else if (!isLoaded) {
     return <div>Loading...</div>;
