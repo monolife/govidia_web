@@ -35,8 +35,10 @@ const Computer = (props) => {
   	labels: ['GPU %', 'Mem %', 'Temp (C)'],
   	datasets: props.data.infos.map( (d,index) =>{
   		let rObj = {
-  			label: d.gpuIndex + " " +d.name,
-  			data: [d.utilizationGpu, d.utilizationMemory, d.temperatureGpu],
+  			label: d.gpu_index + " " +d.name,
+  			data: [d.utilization_gpu, 
+          d.utilization_memory, 
+          d.temperature_gpu],
   			backgroundColor: fills[index+1],
   			borderColor: outlines[index+1],
   		}
@@ -51,7 +53,6 @@ const Computer = (props) => {
   const open = Boolean(anchorEl);
 
   var hoverhandler = function(event,elements) {
-  	console.log(event)
   	setAnchorEl(event.currentTarget);
   	setinfoElDex(elements.datasetIndex);
   }
