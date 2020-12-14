@@ -87,7 +87,7 @@ export default function Album(props) {
         </div>
         <Container className={classes.cardGrid} maxWidth="md">
           {/* End hero unit */}
-          <Grid container spCameraIconacing={4}>
+          <Grid container spacing={4}>
             {props.children}
           </Grid>
         </Container>

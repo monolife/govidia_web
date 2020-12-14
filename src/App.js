@@ -23,8 +23,10 @@ function App() {
   // this useEffect will run once
   // similar to componentDidMount()
   React.useEffect(() => {
-    let serverUrl = process.env.REACT_APP_SERVER_URL + ":" + 
+    let uri = window.location.href.split(":")
+    let serverUrl = uri[0]+ ":"+uri[1] + ":" + 
       process.env.REACT_APP_SERVER_PORT;
+    console.log(serverUrl);
     fetch(serverUrl,  {
       method: 'GET',
       // mode: 'cors',
