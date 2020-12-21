@@ -3,5 +3,6 @@ version: "3.7"
 services:
   govidia_web:
     image: amon/govidia_web:latest
-    ports:
-      - 5000:5000
+    # ports:
+    #   - 8081:5000
+    network_mode: "host"

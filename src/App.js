@@ -25,7 +25,7 @@ function App() {
   React.useEffect(() => {
     let uri = window.location.href.split(":")
     let serverUrl = uri[0]+ ":"+uri[1] + ":" + 
-      process.env.REACT_APP_SERVER_PORT;
+      process.env.REACT_APP_SERVER_PORT + "/query";
     console.log(serverUrl);
     fetch(serverUrl,  {
       method: 'GET',
