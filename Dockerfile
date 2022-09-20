@@ -1,15 +1,16 @@
-FROM node:15.3.0-alpine3.10 AS builder
+FROM node:16-alpine AS builder
+ENV NODE_ENV=production
 WORKDIR /app/govidia
-COPY package.json package-lock.json ./
-RUN npm install
-COPY ./src/ ./src/
-COPY ./public/ ./public/
-COPY ./.env .
+COPY . .
+RUN npm ci 
 RUN npm run build
 
-FROM node:15.3.0-alpine3.10  
-RUN apk --no-cache add ca-certificates && \
-	npm install -g serve
+
+# === Production stage ===
+FROM node:16-alpine
 WORKDIR /app/govidia
+RUN apk --no-cache add ca-certificates && \
+       npm install -g serve
 COPY --from=builder /app/govidia/build/ ./build
-CMD ["serve","-s", "build", "--cors", "--debug"]  
+EXPOSE 5000
+CMD ["npx", "serve", "-s", "build", "-l", "5000", "--cors", "--debug"]  
