@@ -7,6 +7,10 @@ import Paper from '@mui/material/Paper';
 
 function App() {
 
+  function refreshPage() {
+    window.location.reload(false);
+  }
+
   const [error, setError] = React.useState(null);
   const [isLoaded, setIsLoaded] = React.useState(false);
   const [items, setItems] = React.useState([]);
@@ -16,7 +20,7 @@ function App() {
   React.useEffect(() => {
     let uri = window.location.href.split(":")
     let serverUrl = uri[0]+ ":"+uri[1] + ":" + 
-      process.env.REACT_APP_SERVER_PORT + "/query";
+      process.env.REACT_APP_SERVER_PORT + "/hosts";
     console.log(serverUrl);
     fetch(serverUrl,  {
       method: 'GET',
@@ -56,8 +60,8 @@ function App() {
         <Album>
           {items.map( (d,i) =>{
             return (
-              <Grid item xs={6} className="Album" key={d.hostname}>
-                <Paper elevation={3}>
+              <Grid item xs={6} className="Album" key={d}>
+                <Paper elevation={2}>
                   <Computer data={d} />
                 </Paper>
               </Grid>

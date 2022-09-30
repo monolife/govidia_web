@@ -5,7 +5,6 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-// import { makeStyles } from '@mui/material/styles';
 import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
 
@@ -23,8 +22,6 @@ function Copyright() {
 }
 
 export default function Album(props) {
-  // const classes = useStyles();
-
   return (
     <React.Fragment>
       <CssBaseline />
@@ -39,27 +36,29 @@ export default function Album(props) {
       <main>
         {/* Hero unit */}
         <div >
-          <Container maxWidth="sm">
+          <Container maxWidth="lg">
             <Typography variant="h5" align="center" color="textSecondary" paragraph>
-              Shows curated output of the nvidia-smi from connected computers.
-              Rollover GPU for more info, click to hide in graph.
+              Shows curated output of the nvidia-smi.
             </Typography>
+            <Typography variant="h6" align="center" color="textSecondary" paragraph>
+              Rollover GPU name for more info, click to toggle visiblity.
+            </Typography>
+            <button onClick={ () => window.location.reload(false) }>Refresh All</button>
           </Container>
+          <p/>
         </div>
-        <Container maxWidth="md">
+        <Container maxWidth="lg">
           {/* End hero unit */}
           <Grid container spacing={2}>
             {props.children}
           </Grid>
         </Container>
       </main>
-      {/* Footer */}
       <footer >
-        <Typography variant="h6" align="center" gutterBottom>
-          Footer
-        </Typography>
+        <p/>
+        <p/>
         <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-          Something here to give the footer a purpose!
+          Hey, look at you, reading this text down here. I like your style ;-)
         </Typography>
         <Copyright />
       </footer>

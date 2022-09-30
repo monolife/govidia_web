@@ -1,8 +1,10 @@
 import React from 'react';
+import Paper from '@mui/material/Paper';
 
 const GpuInfoCard = (props) => {
 	
 	return(
+		<Paper elevation={6}>
 			<table>
 				<tbody>
 				  <tr>
@@ -28,6 +30,7 @@ const GpuInfoCard = (props) => {
 				  </tr>
 				</tbody>
 			</table>
+		</Paper>
 	)	
 }
 
