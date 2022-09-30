@@ -2,17 +2,8 @@ import React from 'react';
 import './App.css';
 import Computer from './components/Computer';
 import Album from './components/Album';
-import Grid from '@material-ui/core/Grid';
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  }
-}));
-
-
+import Grid from '@mui/material/Grid';
+import Paper from '@mui/material/Paper';
 
 function App() {
 
@@ -29,7 +20,7 @@ function App() {
     console.log(serverUrl);
     fetch(serverUrl,  {
       method: 'GET',
-      // mode: 'cors',
+      mode: 'cors',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
@@ -52,7 +43,7 @@ function App() {
       )
   }, [])
 
-  const classes = useStyles();
+  // const classes = useStyles();
   if (error) {
     return <div>Error: {error.message}</div>;
   } else if (!isLoaded) {
@@ -65,8 +56,8 @@ function App() {
         <Album>
           {items.map( (d,i) =>{
             return (
-              <Grid item className={classes.paper} key={d.hostname}>
-                <Paper>
+              <Grid item xs={6} className="Album" key={d.hostname}>
+                <Paper elevation={3}>
                   <Computer data={d} />
                 </Paper>
               </Grid>
@@ -79,6 +70,3 @@ function App() {
 }
 
 export default App;
-          // <Grid container className={classes.root} spacing={2}>
-          //   
-          // </Grid>
